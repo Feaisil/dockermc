@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "${OVERVIEWER_SCHEDULE} overviewer.py --config=/overviewer.cfg" >> /overviewer.cron.tab
+echo "${OVERVIEWER_SCHEDULE} overviewer.py --config=/overviewer.cfg --genpoi" >> /overviewer.cron.tab
+mkdir -p /overviewer/markers
+cp /mapiconscollection-markers.zip /overviewer/markers
+cd /overviewer/markers && unzip mapiconscollection-markers.zip
+crontab /overviewer.cron.tab
+exec cron -f
+

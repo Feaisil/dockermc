@@ -1,0 +1,6 @@
+#!/bin/sh
+
+aws s3api get-object --bucket parisminecraft --key isilien-backup /data/backup.tar.gz
+cd /data
+tar xzf /data/backup.tar.gz
+

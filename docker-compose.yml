@@ -1,0 +1,27 @@
+loader:
+        image: isil/aws-mc-backup-loader
+
+server:
+        image: itzg/minecraft-server
+        restart: always
+        ports: 25565:25565
+        detach: true
+
+backup:
+        image: isil/aws-mc-backup
+        restart: always
+
+overviewer:
+        image: isil/mc-overviewer
+        restart: always
+
+overviewer-webserver:
+        image: isil/mc-overviewer-webserver
+        restart: always
+        ports: 80:80
+
+management-webserver:
+        image: isil/mc-management-webserver
+        restart: always
+        
+

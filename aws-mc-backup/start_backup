@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "${BACKUP_SCHEDULE} /do_backup" > /backup.cron.tab
+echo "${AWS_SCHEDULE} /push_to_aws" >> /backup.cron.tab
+crontab /backup.cron.tab
+exec cron -f
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+aws s3api put-object --bucket parisminecraft  --key isilien-backup  --body $(ls -r1 /backup/*.tar.gz|tail -n1)
+

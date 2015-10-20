@@ -1,0 +1,18 @@
+#!/bin/sh
+
+mkdir -p /backup/latest
+cp -pR /data/*.json /backup/latest
+cp -pR /data/server.properties /backup/latest
+cp -pR /data/world /backup/latest
+
+cd /backup/latest
+
+rm /backup/very_old.tar.gz
+mv /backup/old.tar.gz /backup/very_old.tar.gz
+mv /backup/latest.tar.gz /backup/old.tar.gz
+
+tar czf ../latest.tar.gz *.json server.properties world
+
+rm -R /backup/old
+mv /backup/latest /backup/old
+
